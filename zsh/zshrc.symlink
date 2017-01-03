@@ -39,3 +39,5 @@ do
 done
 
 unset config_files
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
