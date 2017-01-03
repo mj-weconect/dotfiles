@@ -1,0 +1,8 @@
+#!/bin/zsh
+#
+# This lets you jump to the root of a git repo
+#
+
+a() {
+  cd `git rev-parse --show-toplevel`
+}
