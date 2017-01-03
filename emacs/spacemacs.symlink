@@ -56,14 +56,14 @@ values."
      (ruby :variables
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec)
-     ruby-ext
+     ;; ruby-ext
      ruby-on-rails
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
      sql
-     switch-window
+     ;; switch-window
      syntax-checking
      ;; version-control
      yaml
