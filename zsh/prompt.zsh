@@ -6,7 +6,7 @@ if (( $+commands[git] ))
 then
   git="$commands[git]"
 else
-  git="/usr/bin/git"
+  git="/usr/local/bin/git"
 fi
 
 git_branch() {
@@ -50,13 +50,16 @@ need_push () {
   fi
 }
 
+user_at_host() {
+  echo "%n@%m"
+}
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+    echo "%{$fg_bold[cyan]%}%~%{$reset_color%}"
 }
 
-export PROMPT=$'\nin $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(user_at_host):$(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export RPROMPT="%{$fg_bold[cyan]%}%t%{$reset_color%}"
 }
 
 precmd() {
