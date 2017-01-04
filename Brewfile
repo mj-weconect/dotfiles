@@ -37,6 +37,7 @@ brew 'wget'
 brew 'yarn'
 
 cask '1password'
+cask 'alfred'
 cask 'divvy'
 cask 'firefox'
 cask 'google-chrome'
