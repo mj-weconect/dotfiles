@@ -1,0 +1,74 @@
+# make copy and paste work on osx
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# use GNU screen prefix
+#set -g prefix C-a
+#bind a send-prefix
+#unbind C-b
+
+# don't delay when sending commands
+set -sg escape-time 1
+
+bind-key C-b last-window
+#bind l last-window
+
+# start window and pane naming at 1 instead of 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+# renumber windows sequentially after closing any of them
+set -g renumber-windows on
+
+# split panes with more sane bindings
+bind | split-window -h
+bind - split-window -v
+
+# pane movement with vim style bindings
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# resize panes
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# mouse settings
+#setw -g mode-mouse off
+#setw -g mode-mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane on
+#set -g mouse-select-window on
+
+# configure some colours
+set -g default-terminal "screen-256color"
+set -g status-fg white
+set -g status-bg black
+setw -g window-status-fg white
+setw -g window-status-bg default
+setw -g window-status-attr dim
+setw -g window-status-current-fg cyan
+setw -g window-status-current-bg default
+setw -g window-status-current-attr bright
+
+# status bar
+set -g status-left-length 40
+set -g status-left "#[fg=green]Session: #S"
+set -g status-right "#[fg=cyan]%b %d %R"
+set -g status-justify centre
+setw -g monitor-activity on
+set -g visual-activity on
+
+setw -g mode-keys vi
+
+# using vim like keys for copy and paste
+unbind [
+bind Escape copy-mode
+bind P paste-buffer
+bind -t vi-copy 'v' begin-selection
+bind -t vi-copy 'y' copy-selection
+
+# prefix+r to reload tmux config
+bind r source ~/.tmux.conf \; display "Reloaded!"
