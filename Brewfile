@@ -12,7 +12,6 @@ brew 'elixir'
 brew 'erlang'
 brew 'git-extras'
 brew 'grc'
-brew 'imagemagick'
 brew 'jq'
 brew 'leiningen'
 brew 'libgit2'
@@ -39,6 +38,10 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'zsh-completions'
+
+# freeze imagemagick to version 6:
+brew 'crazymykl/homebrew-custom/imagemagick@6'
+#brew 'imagemagick'
 
 cask '1password'
 cask 'alfred'
